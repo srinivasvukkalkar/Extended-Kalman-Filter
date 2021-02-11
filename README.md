@@ -1,7 +1,7 @@
 # CarND-Extended Kalman Filter 
 Self-Driving Car Engineer Nanodegree Program
 
-[image1]: ./images/RMSE_result.jpg "RMSE"
+[image1]: ./images/RMSE_results.jpg "RMSE"
 [image2]: ./images/Simulator_Connection.jpg "Simulator Connection"
 [image3]: ./images/Simulator_Screen.jpg "Simulator Screen"
 
