@@ -26,18 +26,18 @@ void KalmanFilter::Init(VectorXd &x_in, MatrixXd &P_in, MatrixXd &F_in,
 }
 
 void KalmanFilter::Predict() {
-  cout << "BEGIN Predict" << endl;
+//   cout << "BEGIN Predict" << endl;
   /**
    * TODO: predict the state
    */
   x_ = F_ * x_;
   MatrixXd Ft = F_.transpose();
   P_ = F_ * P_ * Ft + Q_;
-  cout << "END Predict" << endl;
+//   cout << "END Predict" << endl;
 }
 
 void KalmanFilter::pos_cal(const VectorXd &y){  
-  cout << "BEGIN pos_cal" << endl;
+//   cout << "BEGIN pos_cal" << endl;
 
   MatrixXd Ht = H_.transpose();
   MatrixXd S = H_ * P_ * Ht + R_;
@@ -51,22 +51,22 @@ void KalmanFilter::pos_cal(const VectorXd &y){
   MatrixXd I = MatrixXd::Identity(x_size, x_size);
   x_ = x_ + (K * y);
   P_ = (I - K * H_) * P_;
-  cout << "END pos_cal" << endl;
+//   cout << "END pos_cal" << endl;
 }
 
 void KalmanFilter::Update(const VectorXd &z) {  
-  cout << "BEGIN Update" << endl;
+//   cout << "BEGIN Update" << endl;
   /**
    * TODO: update the state by using Kalman Filter equations
    */
   VectorXd z_pred = H_ * x_;
   VectorXd y = z - z_pred;
   pos_cal(y);
-  cout << "END Update" << endl;
+//   cout << "END Update" << endl;
 }
 
 void KalmanFilter::UpdateEKF(const VectorXd &z) {  
-  cout << "BEGIN UpdateEKF" << endl;
+//   cout << "BEGIN UpdateEKF" << endl;
   /**
    * TODO: update the state by using Extended Kalman Filter equations
    */
@@ -93,5 +93,5 @@ void KalmanFilter::UpdateEKF(const VectorXd &z) {
   y[1] = atan2(sin(y[1]), cos(y[1]));
   
   pos_cal(y);
-  cout << "END UpdateEKF" << endl;
+//   cout << "END UpdateEKF" << endl;
 }
