@@ -1,8 +1,10 @@
 # CarND-Extended Kalman Filter 
 Self-Driving Car Engineer Nanodegree Program
 
-[image11]: ./examples/undistort_output.png "Undistorted"
-[image12]: ./test_images/test1.jpg "Road Transformed"
+[image1]: ./images/RMSE_result.jpg "RMSE"
+[image2]: ./images/Simulator_Connection.jpg "Simulator Connection"
+[image3]: ./images/Simulator_Screen.jpg "Simulator Screen"
+
 
 #Overview
 
@@ -34,7 +36,25 @@ Connected!!!
 
 # Running the simulator with dataset 1
 
-![alt text][image7]
+Simulator Connection
+
+![alt text][image2]
+
+Simulator screen :
+
+![alt text][image3]
+
+After running dataset 1 the RMSE values look like this
+
+![alt text][image1]
+
+
+## Acurary
+
+The output coordinates must have an RMSE <= [.11, .11, 0.52, 0.52] using Udacity Data
+The EKF accuracy was:
+
+Dataset 1 : RMSE <= [0.0974, 0.0855, 0.4517, 0.4404]
 
 
 Once the install for uWebSocketIO is complete, the main program can be built and run by doing the following from the project top directory.
@@ -156,4 +176,3 @@ still be compilable with cmake and make.
 
 ## How to write a README
 A well written README file can enhance your project and portfolio.  Develop your abilities to create professional README files by completing [this free course](https://www.udacity.com/course/writing-readmes--ud777).
-
