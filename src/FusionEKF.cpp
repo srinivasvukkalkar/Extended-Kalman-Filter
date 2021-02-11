@@ -105,15 +105,12 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
       ekf_.x_ << pos_x, pos_y, vel_x, vel_y; 
     } else if (measurement_pack.sensor_type_ == MeasurementPackage::LASER) {
       // TODO: Initialize state.
-//       ekf_.x_(0) = measurement_pack.raw_measurements_[0];
-//       ekf_.x_(1) = measurement_pack.raw_measurements_[1];
-//       ekf_.x_(2) = 0;
-//       ekf_.x_(3) = 0;
-//      ekf_.x_ <<  ekf_.x_(0), ekf_.x_(1), ekf_.x_(2), ekf_.x_(3);
-      ekf_.x_ << measurement_pack.raw_measurements_(0), //px
-                 measurement_pack.raw_measurements_(1), //py
-                 0, //vx
-                 0; //vy
+      ekf_.x_(0) = measurement_pack.raw_measurements_[0];
+      ekf_.x_(1) = measurement_pack.raw_measurements_[1];
+      ekf_.x_(2) = 0;
+      ekf_.x_(3) = 0;
+      ekf_.x_ <<  ekf_.x_(0), ekf_.x_(1), ekf_.x_(2), ekf_.x_(3);
+
     }
     
     previous_timestamp_ = measurement_pack.timestamp_;
@@ -133,10 +130,6 @@ void FusionEKF::ProcessMeasurement(const MeasurementPackage &measurement_pack) {
    * TODO: Update the process noise covariance matrix.
    * Use noise_ax   = 9 and noise_ay = 9 for your Q matrix.
    */ 
-  
-//   //set the acceleration noise components
-//   noise_ax = 9;
-//   noise_ay = 9;
   
   // compute the time elapsed between the current and previous measurements
   // dt - expressed in seconds
